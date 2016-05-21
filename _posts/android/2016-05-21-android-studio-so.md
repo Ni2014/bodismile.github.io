@@ -12,12 +12,12 @@ keywords: androidstudio,so
 
 1. 将项目切换到`Project`模式下，将so文件直接复制到`app`的`libs`文件夹下面;
 2. 在`app`的`build.gradle`文件的`android`选项下添加如下设置，并点击`sync Now`，重新build该工程即可。
-
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
+ 
+		sourceSets {
+		    main {
+		        jniLibs.srcDirs = ['libs']
+		    }
+		}
 
 完整的`build.gradle`示例如下：
 
