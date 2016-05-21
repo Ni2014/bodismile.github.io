@@ -1,6 +1,12 @@
-## 2.0以上的Android Studio导入so文件的正确姿势
+---
+layout: post
+title: 2.0以上的Android Studio导入so文件的正确姿势
+category: 移动开发
+tags: android,androidstudio
+keywords: androidstudio,so
+---
 
-本人使用的AS版本：2.1.1，gradle版本：2.1.0
+环境：`AndroidStudio版本：2.1.1`，`gradle版本：2.1.0`
 
 导入步骤：
 
