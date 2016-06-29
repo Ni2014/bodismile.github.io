@@ -21,48 +21,16 @@ keywords: android studio,Ignoring InnerClasses attribute for an anonymous inner 
 	Error:this warning is that reflective operations on this class will incorrectly
 	Error:indicate that it is *not* an inner class.
 
-错误原因：`重复编译包造成的`
-
-错误分析：
-
-我的`app`下的`build.gradle`文件如下：
-
-	android {
-	    compileSdkVersion 22
-	    buildToolsVersion "22.0.1"
-	
-	    defaultConfig {
-	        minSdkVersion 16
-	        targetSdkVersion 22
-	        versionCode 5
-	        versionName "2.0.5"
-	    }
-	    buildTypes {
-	        release {
-	            minifyEnabled false
-	            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-	        }
-	    }
-	    lintOptions {
-	        abortOnError false
-	    }
-	}
-	
-	dependencies {
-		//1
-	    compile fileTree(dir: 'libs', include: ['*.jar'])
-	    testCompile 'junit:junit:4.12'
-		//2
-	    compile files('libs/所导入的jar包名')
-	}
-
- 通过`Add As Library`方法添加jar包后，as都会默认在`dependencies`标签下生成`compile files('libs/所导入的jar包名')`这样一行语句，但是`compile fileTree(dir: 'libs', include: ['*.jar'])`已经`compile`了`libs`下面的所有jar，这样就造成了重复编译。
+错误原因：`该jar文件在混淆过程中将该匿名内部类的某个属性给混淆啦`
 
 **解决方式：**
 
-	删除AS生成的所有的`compile files('libs/所导入的jar包名')`，重新build下。
+	需要重新混淆jar文件，并将警告的那些类都不要混淆。
 
-注：此方法对你来说不一定管用。
+	-keep public class cn.bmob.v3.util.*{
+	    public protected <fields>;
+	    public protected <methods>;
+	}
 
 ## libpng error: Not a PNG file
 
