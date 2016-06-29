@@ -19,11 +19,16 @@ keywords: android,ndk,jni,java
 	double 	jdouble
 
 注：
+
 1. Java中的返回值void和JNI中的void是完全对应的 
-2. Java中的基本数据类型（boolean, byte, char, short, int, long, float, double），在JNI中对应的数据类型只要在前面加上 `j `就对应了（jboolean, jbyte, jchar, jshort, jint, jlong, jfloat, jdouble） 
-3. Java中的对象，包括类库中定义的类、接口以及自定义的类接口，都对应于JNI中的 jobject
-4. Java中基本数据类型的数组对应与JNI中的 jarray 类型。（type就是上面说的8种基本数据类型）
-5. Java中对象的数组对应于JNI中的 jobjectArray 类型。（在Java中一切对象、接口以及数组都是对象）
+
+2. Java中的基本数据类型（`boolean, byte, char, short, int, long, float, double`），在JNI中对应的数据类型只要在前面加上 `j `就对应了（`jboolean, jbyte, jchar, jshort, jint, jlong, jfloat, jdouble`） 
+
+3. Java中的对象，包括类库中定义的类、接口以及自定义的类接口，都对应于JNI中的 `jobject`
+
+4. Java中基本数据类型的数组对应与JNI中的 `jarray` 类型。（type就是上面说的8种基本数据类型）
+
+5. Java中对象的数组对应于JNI中的 `jobjectArray` 类型。（在Java中一切对象、接口以及数组都是对象）
 
 ## 操作Java的数组
 
